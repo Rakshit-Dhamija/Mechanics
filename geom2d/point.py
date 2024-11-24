@@ -100,3 +100,24 @@ class Point:
         y = round(self.y, decimals)
 
         return f'({x}, {y})'
+    
+    def _midpoint_(self , other):
+        x=(self.x+other.x)/2
+        y=(self.y+other.y)/2
+        return Point(x,y)
+    
+    def line(self, other):
+        """
+        Returns slope and y-intercept of the calculated line
+        """
+        # slope
+        m = (other.y - self.y) / (other.x - self.x)
+        # y-intercept
+        c = self.y - m * other.x
+        return m,c
+
+    def reflection(self, slope, intercept):
+        x3_reflected = (self.x - 2 * slope * (self.y - intercept)) / (slope**2 + 1)
+        y3_reflected = (slope * (self.x - intercept) + slope*2 * self.y) / (slope*2 + 1)
+        C_ref = Point(x3_reflected, y3_reflected)
+        return C_ref

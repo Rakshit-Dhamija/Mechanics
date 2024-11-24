@@ -12,7 +12,7 @@ class Line:
     def __init__(self, base: Point, direction: Vector):
         self.base = base
         self.direction = direction
-
+    
     def is_parallel_to(self, other):
         """
         Tests whether this and other lines are parallel.
